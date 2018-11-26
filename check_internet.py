@@ -29,6 +29,7 @@ def main():
     pause_time = 60*2 # time in seconds to pause
     log_file = 'test_log_file.csv'
     file_path = os.path.join(sys.path[0], log_file)
+    loop = False
     
     #1: Initialize/Empty the Log File
     init_log_file(file_path)
@@ -36,6 +37,8 @@ def main():
     #2: Loop every *pause_time* seconds and test hosts
     while True:
         test_hosts(hosts, file_path)
+        if loop == False:
+            break
         time.sleep(pause_time)
 
 if __name__ == '__main__':
